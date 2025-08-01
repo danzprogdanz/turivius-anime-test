@@ -1,0 +1,1 @@
+export const menuSideBarHeight = "70px" as const
