@@ -19,27 +19,28 @@ export type CategoriesSlugsTypes =
     "elf"
 
 
-export const findIconHelper = (key: CategoriesSlugsTypes): React.ReactNode => {
+export const findIconHelper = (
+  key: CategoriesSlugsTypes,
+  color: string = colorsCore.blue100
+): React.ReactNode => {
   switch (key.toLowerCase()) {
     case 'android':
-      return <RobotIcon color={colorsCore.blue100}/>;
+      return <RobotIcon color={color}/>;
     case 'middle-school':
-      return <StudentsIcon color={colorsCore.blue100}/>;
+      return <StudentsIcon color={color}/>;
     case 'cycling':
-      return <BicycleIcon color={colorsCore.blue100}/>;
+      return <BicycleIcon color={color}/>;
     case 'elementary-school':
-      return <ElementarySchoolIcon color={colorsCore.blue100}/>;
+      return <ElementarySchoolIcon color={color}/>;
     case 'mermaid':
-      return <MermaidIcon color={colorsCore.blue100}/>;
+      return <MermaidIcon color={color}/>;
     case 'all-girls-school':
-
     case 'vampire':
     case 'wrestling':
     case 'samurai':
     case 'elf':
-      return <ElfIcon color={colorsCore.blue100}/>;
-
+      return <ElfIcon color={color}/>;
     default:
-      return <StudentsIcon color={colorsCore.blue100}/>; // default fallback
+      return <StudentsIcon color={color}/>;
   }
 }

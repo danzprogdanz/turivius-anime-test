@@ -20,15 +20,15 @@ export const SectionRootStyled = styled.section`
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
-  width: 70vw;
-  padding: 0rem 15vw;
+  width: 80vw;
   position: relative;
 
   ${media.up(breakpoints.xs)`
     `}
 
   ${media.up(breakpoints.sm)`
-    
+    width: 70vw;
+    padding: 0rem 15vw;
     `}
     
     
