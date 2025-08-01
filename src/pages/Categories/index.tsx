@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "../../components/common/Header/index.tsx";
 import styled from "styled-components";
 import { colorsCore } from "../../design-system/core/colors.ts";
-import { AnimeCard } from "../Home/AnimeCard/index.tsx";
 import { useNavigate } from "react-router-dom";
-import PaginationBar from "../../components/common/paginationBar/index.tsx";
 import { media } from "../../design-system/utils/mediaQueriesHelper.ts";
 import { breakpoints } from "../../design-system/constants/breakpoints.ts";
-import { useAnimes } from "../../hooks/api/useAnimes.ts";
-import { AnimeCardSkeleton } from "../Home/AnimeCardSkelleton/indexs.tsx";
-import { useIsMobile } from "../../hooks/useMediaQuery.ts";
 import { useCategories } from "../../hooks/api/useCategories.ts";
 import { CollectionCard } from "./Card/index.tsx";
 
@@ -25,6 +20,7 @@ const Categories: React.FC = () => {
         <AnimesGridContainerStyled>
           {categories?.data.map((anime, index) => (
                 <CollectionCard
+                  key={index}
                   collection={anime.attributes}
                   onClick={() => navigate(`${anime.attributes.slug}`)}
                 />

@@ -1,7 +1,3 @@
-interface KitsuAnimeResponse {
-  data: IAnime[];
-}
-
 export interface IAnime {
   id: string;
   type: string;

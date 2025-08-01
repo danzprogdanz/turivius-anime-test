@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import animeService, { initialParams, type IParams } from "../api/services/animeService";
+import animeService, { initialParams } from "../../api/services/animeService";
 
-export const useAnimeSearch = (defaultParams: IParams = initialParams) => {
+export const useAnimeSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);

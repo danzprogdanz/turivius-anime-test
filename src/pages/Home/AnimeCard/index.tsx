@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import type { Anime, AnimeCardProps } from './types';
-import { CardBadge, CardContainer, CardContent, CardImage, CardMeta, CardSynopsis, CardTitle, Episodes, GenreList, GenreTag, Rating } from './styled';
+import type { AnimeCardProps } from './types';
+import { CardBadge, CardContainer, CardContent, CardImage, CardMeta, CardSynopsis, CardTitle } from './styled';
 import LoadingSpinner from '../../../components/common/icons/LoadingSpinner';
 
 
@@ -10,7 +10,7 @@ export const AnimeCard: React.FC<AnimeCardProps> = ({
   onFetchAnime
 }) => {
 
-  const { id, type, links, attributes, relationships } = anime;
+  const { attributes } = anime;
   const [imageStatus, setImageStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
   const [imageUrl, setImageUrl] = useState(attributes?.coverImage?.original || attributes?.coverImage?.tiny || attributes?.coverImage?.large || attributes?.coverImage?.small);
 

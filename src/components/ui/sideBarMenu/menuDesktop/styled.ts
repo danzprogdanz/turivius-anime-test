@@ -53,7 +53,7 @@ export const SideBarRootStyled = styled.div<{ $isOpen?: boolean }>`
   margin: 0;
   width: 70px;
   height: 70px;
-  background-color: #00092C;;
+  background-color: ${colorsCore.blue1000};
   z-index: ${Z_INDEX.sideBar};
   transition: all 0.3s ease;
 
@@ -80,7 +80,7 @@ export const IconsWrapperStyled = styled.div<{ $isOpen?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #161b2cbd;
+  background-color: ${colorsCore.darkBlue900}bd;
   backdrop-filter: blur(5px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -88,11 +88,13 @@ export const IconsWrapperStyled = styled.div<{ $isOpen?: boolean }>`
     ${media.up(breakpoints.lg)`
       height: 100vh;
       width: ${LAYOUT.sidebarWidth};
+      padding-top: 80px;
     `}
   `) : (`
     ${media.up(breakpoints.lg)`
       height: 100vh;
       width: 70px;
+      padding-top: 80px;
     `}
   `)};
 
@@ -110,12 +112,13 @@ export const LabelsContainerStyled = styled.div<{
   $isOpen?: boolean;
   $isAnimating?: boolean;
 }>`
+  border-top: 3px solid ${colorsCore.blue100};
   position: absolute;
   height: calc(100vh - ${LAYOUT.navBar});
   margin-top: ${LAYOUT.navBar};
   display: none;
   flex-direction: column;
-  background-color:  #00092C;
+  background-color: ${colorsCore.blue1000};
   overflow: hidden;
   animation: ${(props) =>
     props.$isAnimating
@@ -144,7 +147,7 @@ export const LabelStyled = styled.div<{
   $isActive: boolean;
   $isOpen: boolean;
 }>`
-  color: white;
+  color: ${colorsCore.white};
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -155,7 +158,6 @@ export const LabelStyled = styled.div<{
   transition: all 0.2s ease;
   animation: ${(props) => (props.$isOpen ? fadeIn : "none")} 0.3s forwards;
   
-
   &:hover {
     background-color: ${colorsCore.gray900};
     color: ${colorsCore.gray200};
@@ -230,4 +232,38 @@ export const HamburgerButton = styled(IconButton) <{ $isOpen: boolean }>`
     css`
       transform: rotate(90deg);
     `}
+`;
+
+export const Chevron = styled.span`
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transition: all 0.2s ease;
+`;
+
+export const ChevronLeft = styled(Chevron)`
+  transform: rotate(135deg);
+`;
+
+export const ChevronRight = styled(Chevron)`
+  transform: rotate(-45deg);
+`;
+
+export const ChevronButton = styled(IconButton)`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: ${Z_INDEX.sideBar + 1};
+  transition: all 0.3s ease;
+  color: ${colorsCore.gray100};
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  ${media.up(breakpoints.lg)`
+
+  `}
 `;

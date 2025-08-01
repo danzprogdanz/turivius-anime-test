@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import IconButton from "../../../common/iconButton.tsx/index.tsx";
-import HamburgerIcon from "../../../common/icons/hamburgerIcon.tsx";
-import { colorsCore } from "../../../../design-system/core/colors.ts";
+import IconButton from "../../../common/iconButton.tsx";
 import {
   findIconHelper,
   type CategoriesSlugsTypes,
@@ -9,7 +7,16 @@ import {
 import { useCategories } from "../../../../hooks/api/useCategories.ts";
 import { useAnimeCategory } from "../../../../context/AnimeCategoryProvider.tsx";
 import { useNavigate } from "react-router-dom";
-import { HamburgerButton, IconsWrapperStyled, ItemRootStyled, LabelsContainerStyled, LabelStyled, SideBarRootStyled } from "./styled.ts";
+import { 
+  ChevronButton, 
+  ChevronLeft, 
+  ChevronRight, 
+  IconsWrapperStyled, 
+  ItemRootStyled, 
+  LabelsContainerStyled, 
+  LabelStyled, 
+  SideBarRootStyled 
+} from "./styled.ts";
 
 const SideBarMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -36,11 +43,11 @@ const SideBarMenu: React.FC = () => {
   return (
     <SideBarRootStyled $isOpen={isOpen}>
       <IconsWrapperStyled $isOpen={isOpen}>
-        <HamburgerButton
-          $isOpen={isOpen}
-          icon={<HamburgerIcon color={colorsCore.blue100} />}
+        <ChevronButton 
           onClick={toggleSidebar}
+          icon={isOpen ? <ChevronLeft /> : <ChevronRight />}
         />
+        
         <LabelsContainerStyled
           $isOpen={isOpen}
           $isAnimating={isAnimating}
@@ -59,7 +66,7 @@ const SideBarMenu: React.FC = () => {
                   icon={findIconHelper(el.attributes.slug as CategoriesSlugsTypes)}
                   isActive={isActive}
                 />
-                {isOpen && ( // Only render label if sidebar is open
+                {isOpen && (
                   <LabelStyled $isOpen={isOpen} $isActive={isActive}>
                     {el.attributes.title}
                   </LabelStyled>

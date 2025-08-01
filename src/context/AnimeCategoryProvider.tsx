@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import animeService, { type IParams } from '../api/services/animeService';
 import type { IAnime } from '../api/types/AnimeResponse';
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colorsCore } from '../../../design-system/core/colors';
 
 const SkeletonCardContainer = styled.div`
   background: rgba(0, 28, 70, 0.6);

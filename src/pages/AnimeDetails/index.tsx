@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Header from "../../components/common/Header/index.tsx";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../../components/common/icons/LoadingSpinner.tsx";

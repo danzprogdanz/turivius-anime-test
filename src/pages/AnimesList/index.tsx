@@ -9,10 +9,8 @@ import { media } from "../../design-system/utils/mediaQueriesHelper.ts";
 import { breakpoints } from "../../design-system/constants/breakpoints.ts";
 import { useAnimes } from "../../hooks/api/useAnimes.ts";
 import { AnimeCardSkeleton } from "../Home/AnimeCardSkelleton/indexs.tsx";
-import { useIsMobile } from "../../hooks/useMediaQuery.ts";
 
 const AnimesList: React.FC = () => {
-const isMobile = useIsMobile();
 
   const { animes, meta, links, currentParams, setParams, loading } =
     useAnimes();

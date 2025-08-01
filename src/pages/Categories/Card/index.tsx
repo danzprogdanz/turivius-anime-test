@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colorsCore } from '../../../design-system/core/colors';
-import LoadingSpinner from '../../../components/common/icons/LoadingSpinner';
 
 interface CollectionCardProps {
   collection: {
@@ -24,18 +23,6 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   onClick
 }) => {
   const { title, description, totalMediaCount, nsfw } = collection;
-  const [imageStatus, setImageStatus] = React.useState<'loading' | 'loaded' | 'error'>('loading');
-
-  // Placeholder image URL - you might want to replace this with actual collection images
-  const imageUrl = `https://source.unsplash.com/random/300x450/?anime,${encodeURIComponent(title)}`;
-
-  const handleImageLoad = () => {
-    setImageStatus('loaded');
-  };
-
-  const handleImageError = () => {
-    setImageStatus('error');
-  };
 
   return (
     <CardContainer $variant={variant} onClick={onClick}>
@@ -94,51 +81,6 @@ const CardContainer = styled.div<{ $variant: string }>`
   }
 `;
 
-const CardImage = styled.div<{ $imageUrl: string }>`
-  height: ${({ $imageUrl }) => $imageUrl ? '70%' : '100%'};
-  width: 100%;
-  background: 
-    linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, 
-    rgba(0,0,0,0.7) 100%),
-    url(${({ $imageUrl }) => $imageUrl});
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin: auto;
-  border-radius: 4px;
-  overflow: hidden;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg, 
-      rgba(255, 255, 255, 0.05) 0%, 
-      rgba(255, 255, 255, 0) 60%
-    );
-    pointer-events: none;
-  }
-`;
-
-const ImagePlaceholder = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 28, 70, 0.5);
-  color: white;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1rem;
-`;
 
 const CardBadge = styled.span<{ $nsfw: boolean }>`
   position: absolute;
