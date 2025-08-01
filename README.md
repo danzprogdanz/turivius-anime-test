@@ -56,7 +56,6 @@ Solução robusta que demonstra domínio das tecnologias e boas práticas de des
 - **Build:** Vite  
 - **HTTP Client:** Axios  
 - **Gerenciamento de Estado:** Context API  
-- **Testes:** Jest + Testing Library (se aplicável)  
 
 ---
 
